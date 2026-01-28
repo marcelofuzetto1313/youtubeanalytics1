@@ -1,0 +1,5 @@
+vendor
+storage/*.db
+storage/*.sqlite
+client_secret.json
+*.log
