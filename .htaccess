@@ -1,0 +1,11 @@
+# Security: block direct access to secrets / storage (if Apache supports it)
+<FilesMatch "(client_secret\.json|youtubestats\.sqlite|token\.json)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+</IfModule>
